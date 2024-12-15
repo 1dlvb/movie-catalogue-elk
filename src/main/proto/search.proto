@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package com.dlvb.graphqlmoviecatalogue;
+
+service MovieSearchService {
+  rpc searchMovies(SearchRequest) returns (SearchResponse);
+}
+
+message SearchRequest {
+  string query = 1;
+}
+
+message SearchResponse {
+  repeated Movie movies = 1;
+  repeated Genre genres = 2;
+}
+
+message Movie {
+  string id = 1;
+  string title = 2;
+  string description = 3;
+  string genre_id = 4;
+}
+
+message Genre {
+  string id = 1;
+  string name = 2;
+}
