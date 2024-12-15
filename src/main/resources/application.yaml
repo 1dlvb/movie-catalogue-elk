@@ -1,0 +1,9 @@
+spring:
+  application:
+    name:
+      movie-catalogue-elk
+  elasticsearch:
+    uris: http://localhost:9200
+grpc:
+  enabled: true
+  port: 9090
