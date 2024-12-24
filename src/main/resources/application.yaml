@@ -1,19 +1,18 @@
 spring:
   kafka:
     bootstrap-servers: localhost:9092
-    consumer:
-      auto-offset-reset: earliest
-      enable-auto-commit: false
-    listener:
-      missing-topics-fatal: false
-      concurrency: 3
 
   elasticsearch:
+    host: localhost
+    port: 9200
     uris: http://localhost:9200
     username: ""
     password: ""
     ssl-enabled: false
     ca-path: classpath:ca.crt
+    index:
+      name:
+        movie: movie.public.movie
 
   data:
     elasticsearch:
@@ -23,6 +22,7 @@ spring:
 grpc:
   enabled: true
   port: 9090
+
 
 server:
   port: 8085
