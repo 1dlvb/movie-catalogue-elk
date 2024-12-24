@@ -1,4 +1,4 @@
-package com.dlvb.moviecatalogueelk.elasticsearch.model;
+package com.dlvb.moviecatalogueelk.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
