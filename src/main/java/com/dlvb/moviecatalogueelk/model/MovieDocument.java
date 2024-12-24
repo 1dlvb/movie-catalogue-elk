@@ -32,4 +32,5 @@ public class MovieDocument {
 
     @JsonProperty("__deleted")
     private Boolean deleted;
+
 }

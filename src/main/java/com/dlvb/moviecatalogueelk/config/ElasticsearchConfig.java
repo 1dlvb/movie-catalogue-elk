@@ -35,4 +35,5 @@ public class ElasticsearchConfig {
         );
         return new ElasticsearchClient(transport);
     }
+
 }
