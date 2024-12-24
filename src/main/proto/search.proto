@@ -2,21 +2,25 @@ syntax = "proto3";
 
 package com.dlvb.graphqlmoviecatalogue;
 
+// Defines the MovieSearchService gRPC service with the searchMovies method.
 service MovieSearchService {
   rpc searchMovies(SearchRequest) returns (SearchResponse);
 }
 
+// Defines the structure of the request to search movies.
 message SearchRequest {
   string query = 1;
   int32 page_number = 2;
   int32 page_size = 3;
 }
 
+// Defines the structure of the response for searching movies.
 message SearchResponse {
   repeated Movie movies = 1;
   repeated Genre genres = 2;
 }
 
+// Defines the structure of a movie in the search results.
 message Movie {
   string id = 1;
   string title = 2;
@@ -24,6 +28,7 @@ message Movie {
   string genre_id = 4;
 }
 
+// Defines the structure of a genre in the search response.
 message Genre {
   string id = 1;
   string name = 2;

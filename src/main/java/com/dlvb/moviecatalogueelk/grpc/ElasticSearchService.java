@@ -21,6 +21,12 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * GRPC service implementation for searching movies using Elasticsearch.
+ * <p>Class extends {@link MovieSearchServiceGrpc.MovieSearchServiceImplBase}
+ * and implements the GRPC method for searching movies.</p>
+ * @author Matushkin Anton
+ */
 @Slf4j
 @GrpcService
 @RequiredArgsConstructor
@@ -35,6 +41,12 @@ public class ElasticSearchService extends MovieSearchServiceGrpc.MovieSearchServ
     @Value("${spring.elasticsearch.index.name.movie}")
     private String movieIndexName;
 
+    /**
+     * Searches for movies based on the provided search request.
+     *
+     * @param request the search request containing the query, page number, and page size
+     * @param responseObserver the response observer to send the search results back to the client
+     */
     @Override
     public void searchMovies(Search.SearchRequest request, StreamObserver<Search.SearchResponse> responseObserver) {
         String query = request.getQuery();
@@ -50,6 +62,14 @@ public class ElasticSearchService extends MovieSearchServiceGrpc.MovieSearchServ
         responseObserver.onCompleted();
     }
 
+    /**
+     * Performs a full-text search on Elasticsearch to find movies based on the given query, page number, and size.
+     *
+     * @param query the search query
+     * @param pageNumber the page number for pagination
+     * @param size the number of results per page
+     * @return a list of movies that match the search query
+     */
     private List<Search.Movie> performFullTextSearch(String query, int pageNumber, int size) {
         try {
             int from = pageNumber * size;
@@ -79,6 +99,12 @@ public class ElasticSearchService extends MovieSearchServiceGrpc.MovieSearchServ
         }
     }
 
+    /**
+     * Maps Elasticsearch search hits to a list of {@link Search.Movie} objects.
+     *
+     * @param searchResponse the Elasticsearch search response
+     * @return a list of movies based on the search hits
+     */
     private List<Search.Movie> mapSearchHitsToMovies(SearchResponse<Map> searchResponse) {
         List<Search.Movie> movies = new ArrayList<>();
 

@@ -8,6 +8,11 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 
+
+/**
+ * Represents a movie document stored in Elasticsearch.
+ * @author Matushkin Anton
+ */
 @Data
 @Builder
 @NoArgsConstructor
