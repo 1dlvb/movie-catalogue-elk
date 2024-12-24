@@ -1,0 +1,21 @@
+{
+  "mappings": {
+    "properties": {
+      "id": {
+        "type": "integer"
+      },
+      "description": {
+        "type": "text"
+      },
+      "title": {
+        "type": "text"
+      },
+      "genre_id": {
+        "type": "integer"
+      },
+      "__deleted": {
+        "type": "boolean"
+      }
+    }
+  }
+}
