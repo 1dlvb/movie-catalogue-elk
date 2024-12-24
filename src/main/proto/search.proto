@@ -8,6 +8,8 @@ service MovieSearchService {
 
 message SearchRequest {
   string query = 1;
+  int32 page_number = 2;
+  int32 page_size = 3;
 }
 
 message SearchResponse {
