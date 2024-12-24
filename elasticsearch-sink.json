@@ -6,7 +6,7 @@
     "topics": "movie.public.movie",
     "connection.url": "http://elastic:9200",
     "type.name": "_doc",
-    "index": "movie",
+    "index": "movie.public.movie",
     "key.ignore": "false",
     "key.converter": "org.apache.kafka.connect.json.JsonConverter",
     "key.converter.schemas.enable": "false",
