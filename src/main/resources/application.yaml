@@ -1,9 +1,28 @@
 spring:
-  application:
-    name:
-      movie-catalogue-elk
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      auto-offset-reset: earliest
+      enable-auto-commit: false
+    listener:
+      missing-topics-fatal: false
+      concurrency: 3
+
   elasticsearch:
     uris: http://localhost:9200
+    username: ""
+    password: ""
+    ssl-enabled: false
+    ca-path: classpath:ca.crt
+
+  data:
+    elasticsearch:
+      repositories:
+        enabled: true
+
 grpc:
   enabled: true
   port: 9090
+
+server:
+  port: 8085
