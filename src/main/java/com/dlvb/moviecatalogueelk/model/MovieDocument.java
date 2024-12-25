@@ -23,9 +23,9 @@ public class MovieDocument {
     @Id
     private Integer id;
 
-    private String description;
-
     private String title;
+
+    private String description;
 
     @JsonProperty("genre_id")
     private Integer genreId;
