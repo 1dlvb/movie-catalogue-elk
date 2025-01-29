@@ -1,9 +1,28 @@
 spring:
-  application:
-    name:
-      movie-catalogue-elk
+  kafka:
+    bootstrap-servers: localhost:9092
+
   elasticsearch:
+    host: localhost
+    port: 9200
     uris: http://localhost:9200
+    username: ""
+    password: ""
+    ssl-enabled: false
+    ca-path: classpath:ca.crt
+    index:
+      name:
+        movie: movie.public.movie
+
+  data:
+    elasticsearch:
+      repositories:
+        enabled: true
+
 grpc:
   enabled: true
   port: 9090
+
+
+server:
+  port: 8085
